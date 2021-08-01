@@ -5,9 +5,10 @@ class Counter extends Component {
         count: 0,
     };
 
-    handleIncrement() {
-        console.log("Increment clicked");
-    }
+    handleIncrement = (product) => {
+        console.log(product);
+        this.setState({ count: this.state.count + 1 });
+    };
 
     renderTags() {
         if (this.state.tags.length === 0) return <p>There are no tags!</p>;
@@ -28,7 +29,7 @@ class Counter extends Component {
                     {this.formatCount()}
                 </span>
                 <button
-                    onClick={this.handleIncrement}
+                    onClick={() => this.handleIncrement({ id: 1 })}
                     className="btn btn-sm btn-primary"
                 >
                     Increment
